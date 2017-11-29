@@ -1,27 +1,36 @@
-import java.util.ArrayList;
-import java.util.Map;
+import java.util.LinkedList;
+import java.util.List;
 
 public class Journal {
     private Group group;
-    private ArrayList<Lesson> lessons;
+    private List<Subject> subjects;
 
     public Journal(Group group) {
         this.group = group;
-        lessons = new ArrayList<Lesson>();
+        subjects = new LinkedList<Subject>();
     }
 
     public Group getGroup() {
         return group;
     }
 
-    public void addLesson(Lesson lesson){
-        lessons.add(lesson);
+    public void addSubject(Subject sub){
+        subjects.add(sub);
     }
 
-    public int getAllLessonsByStudent(Student student){
+    public int getCountPresentLessons(Student student){
         int count = 0;
-        for(Lesson les : lessons){
-            if(les.isPresentStudent(student)) count++;
+        for(Subject sub : subjects){
+            count += sub.getCountPresentLessons(student);
+        }
+        return count;
+    }
+
+    public int getCountPresentLessons(Student student, Subject subject){
+        int count = 0;
+        for(Subject sub : subjects){
+            if(sub.equals(subject))
+                count += sub.getCountPresentLessons(student);
         }
         return count;
     }

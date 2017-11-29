@@ -1,27 +1,19 @@
-import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.List;
 
 public class Lesson {
-    private String name;
     private String date;
     private String room;
-    private ArrayList<Student> presentStudents;
+    private List<Student> presentStudents;
 
-    public Lesson(String name, String date, String room){
-        this.name = name;
+    public Lesson(String date, String room){
         this.date = date;
         this.room = room;
-        presentStudents = new ArrayList<Student>();
+        presentStudents = new LinkedList<Student>();
     }
 
-    public ArrayList<Student> getPresentStudents() {
+    public List<Student> getPresentStudents() {
         return presentStudents;
-    }
-
-    public boolean isPresentStudent(Student student){
-        for(Student st : presentStudents){
-            if(st.equals(student)) return true;
-        }
-        return false;
     }
 
     public String getDate() {
@@ -40,19 +32,18 @@ public class Lesson {
         this.room = room;
     }
 
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
     public void addPresentStudents(String[][] names, Group group) {
         Student student;
         for(int i = 0; i < names[0].length; i++){
             student = group.checkStudent(names[0][i],names[1][i]);
             if(student != null) this.presentStudents.add(student);
         }
+    }
+
+    public boolean isPresentStudent(Student student){
+        for(Student st : presentStudents){
+            if(st.equals(student)) return true;
+        }
+        return false;
     }
 }
