@@ -1,4 +1,7 @@
-public class Group {
+package com.journal.test.module;
+
+public class Group implements IHaveID {
+    private Integer id;
     private String name;
     public Student[] students;
 
@@ -25,5 +28,15 @@ public class Group {
             }
         }
         return null;
+    }
+
+    @Override
+    public Integer getId() {
+        return id;
+    }
+
+    @Override
+    public void setId(Integer id) {
+        this.id = id;
     }
 }

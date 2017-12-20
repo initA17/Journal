@@ -1,3 +1,5 @@
+package com.journal.test.module;
+
 import java.util.LinkedList;
 import java.util.List;
 

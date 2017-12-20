@@ -1,3 +1,7 @@
+package com.journal.test;
+
+import com.journal.test.module.*;
+
 public class Main {
     public static void main(String[] args) {
         Group a17 = new Group("A17");

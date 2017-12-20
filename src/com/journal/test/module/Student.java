@@ -1,4 +1,7 @@
-public class Student {
+package com.journal.test.module;
+
+public class Student implements IHaveID{
+    private Integer id;
     private String firstName;
     private String lastName;
     private String groupName;
@@ -7,6 +10,14 @@ public class Student {
         this.firstName = firstName;
         this.lastName = lastName;
         this.groupName = groupName;
+    }
+
+    public void setId(Integer id){
+        this.id = id;
+    }
+
+    public Integer getId(){
+        return this.id;
     }
 
     public String getFirstName() {
@@ -37,5 +48,15 @@ public class Student {
     public String toString() {
         return String.format("\n\tfirstName: %s, lastName: %s, groupName: %s",
                 firstName, lastName, groupName);
+    }
+
+    @Override
+    public int hashCode() {
+        return super.hashCode();
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        return super.equals(obj);
     }
 }
